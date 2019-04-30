@@ -13,27 +13,29 @@ let guessesText = document.getElementById('guesses')
 document.onkeypress = function(event) {
     let userGuess = event.key
     let alphabetRandom = alphabet[Math.floor(Math.random() * alphabet.length)]
-
-    if (userGuess === alphabetRandom) {
-        wins++
-        alert('You won!')
-        guessesLeft = 10
-        guesses.Length = 0
-    } else {
-        if (guesses.includes(userGuess)) {
-            alert('Already guessed. Try again')
+    if (!alphabet.includes(userGuess)){
+        alert('That is not a letter, try again')}
+        else {
+        if (userGuess === alphabetRandom) {
+            wins++
+            alert('You won!')
+            guessesLeft = 10
+            guesses.length = 0
         } else {
-            guessesLeft--
-            guesses.push(userGuess)
-            if (guessesLeft === 0) {
-                losses++
-                alert('You lost!')
-                guessesLeft = 10
-                guesses.length = 0
+            if (guesses.includes(userGuess)) {
+                alert('Already guessed. Try again')
+            } else {
+                guessesLeft--
+                guesses.push(userGuess)
+                if (guessesLeft === 0) {
+                    losses++
+                    alert('You lost!')
+                    guessesLeft = 10
+                    guesses.length = 0
+                }
             }
         }
     }
-
     winsText.textContent = wins
     lossesText.textContent = losses
     guessesLeftText.textContent = guessesLeft
