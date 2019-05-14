@@ -12,9 +12,12 @@ let lossesText = document.getElementById('losses-text')
 let guessesLeftText = document.getElementById('guesses-left')
 let guessesText = document.getElementById('guesses')
 
+let alphabetRandom = alphabet[Math.floor(Math.random() * alphabet.length)]
+
+console.log(alphabetRandom)
+
 document.onkeypress = function(event) {
     let userGuess = event.key
-    let alphabetRandom = alphabet[Math.floor(Math.random() * alphabet.length)]
     if (!alphabet.includes(userGuess)){
         alert('That is not a letter, try again')}
         else {
